@@ -18,7 +18,7 @@
                 <p class="lead">
                     por <a href="index.php"> <?= $publicacao->user ?> </a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Postado em <?= postadoem($publicacao->data); ?></p>
+                <p><span class="glyphicon glyphicon-time"></span> Postado <?= postadoem($publicacao->data); ?></p>
                 <hr>
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                 <hr>
