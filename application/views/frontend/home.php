@@ -16,7 +16,7 @@
                     <a href=" <?= base_url('postagem/'.$publicacao->id.'/'.limpar($publicacao->titulo)) ?> "> <?= $publicacao->titulo; ?> </a>
                 </h2>
                 <p class="lead">
-                    por <a href="index.php"> <?= $publicacao->user ?> </a>
+                    por <a href=" <?= base_url('autor/'.$publicacao->id_autor.'/'.limpar($publicacao->nome_autor)); ?>"> <?= $publicacao->nome_autor ?> </a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Postado <?= postadoem($publicacao->data); ?></p>
                 <hr>
