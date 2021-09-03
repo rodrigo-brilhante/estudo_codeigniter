@@ -19,7 +19,7 @@
                         <ul class="dropdown-menu">
                             <?php foreach ($categorias as $categoria) { ?>
                                 <li>
-                                    <a href="<?php echo base_url('categoria/' . $categoria->id . '/' . limpar($categoria->titulo)) ?>"> <?php echo $categoria->titulo; ?> </a>
+                                    <a href="<?= base_url('categoria/' . $categoria->id . '/' . limpar($categoria->titulo)) ?>"> <?= $categoria->titulo; ?> </a>
                                 </li>
                             <?php } ?>
                         </ul>
