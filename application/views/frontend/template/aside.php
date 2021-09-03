@@ -21,9 +21,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-unstyled">
-                                <?php foreach ($categorias as $key => $categoria) { ?>
+                                <?php foreach ($categorias as $categoria) { ?>
                                     <li>
-                                        <a href="<? echo $categoria->id; ?>"> <?php echo $categoria->titulo; ?> </a>
+                                        <a href="<?php echo base_url('categoria/'.$categoria->id.'/'.limpar($categoria->titulo)) ?>"> <?php echo $categoria->titulo; ?> </a>
                                     </li>
                                 <?php } ?>
                             </ul>
