@@ -21,6 +21,7 @@ class Categorias extends CI_Controller {
 		//carregando informações do header
 		$dados['titulo'] = 'Categorias';
 		$dados['subtitulo'] = $slug;
+		$dados['subtitulodb'] = $this->modelcategorias->listar_titulos($id);
 
 		//carregando as paginas
 		$this->load->view('frontend/template/html-header', $dados);
