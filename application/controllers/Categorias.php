@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Categorias extends CI_Controller {
 
 	public function __construct()
 	{
@@ -11,22 +11,21 @@ class Home extends CI_Controller {
 		$this->categorias = $this->modelcategorias->listar_categorias();
 	}
 
-	public function index(): void
+	public function index($id, $slug=null): void
 	{
 		$dados['categorias'] = $this->categorias;
 		//carregando as ultimas publicações 
 		$this->load->model('publicacoes_model', 'modelpublicacoes');
-		$this->publicacoes = $this->modelpublicacoes->destaques_home();
-		$dados['publicacoes'] = $this->publicacoes;
+		$dados['publicacoes'] = $this->modelpublicacoes->categoria_publicada($id);
 
 		//carregando informações do header
-		$dados['titulo'] = 'Página inicial';
-		$dados['subtitulo'] = 'Postagens recentes';
+		$dados['titulo'] = 'Categorias';
+		$dados['subtitulo'] = $slug;
 
 		//carregando as paginas
 		$this->load->view('frontend/template/html-header', $dados);
 		$this->load->view('frontend/template/header');
-		$this->load->view('frontend/home');
+		$this->load->view('frontend/categoria');
 		$this->load->view('frontend/template/aside');
 		$this->load->view('frontend/template/footer');
 		$this->load->view('frontend/template/html-footer');
