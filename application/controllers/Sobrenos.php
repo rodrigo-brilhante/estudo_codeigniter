@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Categorias extends CI_Controller {
+class Sobrenos extends CI_Controller {
 
 	public function __construct()
 	{
@@ -11,7 +11,7 @@ class Categorias extends CI_Controller {
 		$this->categorias = $this->modelcategorias->listar_categorias();
 	}
 
-	public function index($id, $slug=null): void
+	public function index($id, $slug=null)
 	{
 		$dados['categorias'] = $this->categorias;
 		//carregando as ultimas publicações 
@@ -20,7 +20,7 @@ class Categorias extends CI_Controller {
 
 		//carregando informações do header
 		$dados['titulo'] = 'Categorias';
-		$dados['subtitulo'] = '';
+		$dados['subtitulo'] = $slug;
 		$dados['subtitulodb'] = $this->modelcategorias->listar_titulos($id);
 
 		//carregando as paginas
@@ -32,5 +32,25 @@ class Categorias extends CI_Controller {
 		$this->load->view('frontend/template/html-footer');
 
 	}
+
+    public function autores($id, $slug=null)
+    {
+        $dados['categorias'] = $this->categorias;
+        //carregando autores
+        $this->load->model('usuarios_model', 'model_usuario');
+        $dados['autores'] = $this->model_usuario->listar_autor($id);
+
+		//carregando informações do header
+		$dados['titulo'] = 'Sobre nós';
+		$dados['subtitulo'] = 'Autor';
+
+		//carregando as paginas
+		$this->load->view('frontend/template/html-header', $dados);
+		$this->load->view('frontend/template/header');
+		$this->load->view('frontend/autor');
+		$this->load->view('frontend/template/aside');
+		$this->load->view('frontend/template/footer');
+		$this->load->view('frontend/template/html-footer');
+    }
 
 }
